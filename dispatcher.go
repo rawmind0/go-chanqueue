@@ -24,6 +24,7 @@ func NewDispatcher(iQueue chan Job, maxWorkers int) *Dispatcher {
 		InputQueue: iQueue, 
 		MaxWorkers: maxWorkers, 
 		Workers: make([]*Worker,maxWorkers),
+		Status: "INIT",
 		Quit: make(chan bool)}
 }
 
@@ -79,7 +80,5 @@ func (d *Dispatcher) PrefetchWorkers() {
 }
 
 func (d *Dispatcher) SetStatus(s string) {
-	d.Mutex.Lock()
 	d.Status = s
-	d.Mutex.Unlock()
 }
