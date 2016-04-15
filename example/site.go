@@ -16,6 +16,7 @@ type Site struct {
 	Quit chan bool
 	Status string
 	Mutex *sync.Mutex
+	Url string
 	TimeResponse time.Duration
 }
 
@@ -24,7 +25,7 @@ func NewSite(w http.ResponseWriter, r *http.Request, url string) *Site {
 		Writer: w, 
 		Reader: r, 
 		Response: &http.Response{},
-		Url: url
+		Url: url,
 		Quit: make(chan bool)}
 }
 
