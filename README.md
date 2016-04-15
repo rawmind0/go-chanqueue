@@ -26,7 +26,7 @@ Dispatcher struct read jobs from InputQueue, and dispatch them to chanPool to be
 a worker. chanPool is prefetched with MaxWorkers worker that control the max concurrency 
 executing jobs.
 
-* MaxWorkers is a int param that set the max number of workers to dispatch jobs (Concurrency)  
+* MaxWorkers is a int param that set the max number of concurrent workers to dispatch jobs
 * ChanPool is a buffered channel of channels that provides a worker chan pool. 
 * InputQueue is param provided from Queue.
 * Workers is a slice of worker.
@@ -37,6 +37,26 @@ Worker struct read job from WorkerPool, and execute it.
 
 * WorkerPool is param provided from Dispatcher.
 * WorkerChannel is a chan that execute jobs.
+
+## How to use
+
+'''
+go get github.com/rawmind0/go-chanqueue
+'''
+
+'''
+import (
+    "fmt"
+    "net/http"
+    "github.com/rawmind0/go-chanqueue"
+)
+'''
+
+At example directory there is a simple proxy service that proxy web requests to a remote url.
+
+By default it creates a queue of 512 to accept jobs and a pool of 512 concurent workers to
+execute jobs.
+
 
 
 
