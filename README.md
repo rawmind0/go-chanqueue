@@ -40,17 +40,17 @@ Worker struct read job from WorkerPool, and execute it.
 
 ## How to use
 
-'''
-go get github.com/rawmind0/go-chanqueue
-'''
+```
+#go get github.com/rawmind0/go-chanqueue
+```
 
-'''
+```
 import (
     "fmt"
     "net/http"
     "github.com/rawmind0/go-chanqueue"
 )
-'''
+```
 
 At example directory there is a simple proxy service that proxy web requests to a remote url.
 
