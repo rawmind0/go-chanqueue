@@ -31,7 +31,7 @@ func NewDispatcher(iQueue chan Job, maxWorkers int) *Dispatcher {
 func (d *Dispatcher) Start() {
 	d.SetStatus("Starting")
     fmt.Printf("[dispatcher]: Starting...\n")
-    d.PrefetchWorkers()
+    go d.PrefetchWorkers()
 	go d.DispatchJobs()
 }
 
